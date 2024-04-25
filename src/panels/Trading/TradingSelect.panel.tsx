@@ -13,7 +13,7 @@ import {
 import { useExchangePairContext } from "../../providers/ExchangePairContextProvider";
 import { ROUTE_NAMES } from "../../router/constants";
 import { useEffect, useState } from "react";
-import { IPair, IToken } from "./trading";
+import type { IPair, IToken } from "../../types/trading";
 import cx from "classnames";
 import styles from "./Trading.module.css";
 

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { LinkProps } from "./Link.types";
+import type { LinkProps } from "../../types/link";
 
 import styles from "./Link.module.css";
 

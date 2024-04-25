@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { RichCellProps } from "./RichCell.types";
+import type { RichCellProps } from "../../types/cell";
 
 import { Text } from "../Text";
 

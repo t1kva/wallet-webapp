@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { PanelProps } from "./Panel.types";
+import type { PanelProps } from "../../types/panel";
 
 import styles from "./Panel.module.css";
 

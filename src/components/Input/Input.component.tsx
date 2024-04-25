@@ -1,7 +1,7 @@
 import { FC, useRef } from "react";
 import cx from "classnames";
 
-import { InputProps } from "./Input.types";
+import type { InputProps } from "../../types/input";
 
 import styles from "./Input.module.css";
 

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ErrorBlockProps } from "./ErrorBlock.types";
+import type { ErrorBlockProps } from "../../types/block";
 
 import { ReactComponent as Security24OutlineIcon } from "../../icons/Security24Outline.svg";
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import cx from "classnames";
 
-import { SwitchProps } from "./Switch.types";
+import type { SwitchProps } from "../../types/switch";
 
 import styles from "./Switch.module.css";
 

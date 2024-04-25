@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { ActionTextProps } from "./ActionText.types";
+import type { ActionTextProps } from "../../types/text";
 
 import styles from "./ActionText.module.css";
 import { Text } from "../Text";

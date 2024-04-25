@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { PanelHeaderProps } from "./PanelHeader.types";
+import type { PanelHeaderProps } from "../../types/panel";
 
 import styles from "./PanelHeader.module.css";
 

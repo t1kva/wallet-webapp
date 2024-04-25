@@ -1,7 +1,7 @@
 import { FC, useEffect, useMemo, useState } from "react";
 import cx from "classnames";
 
-import { AvatarProps } from "./Avatar.types";
+import type { AvatarProps } from "../../types/avatar";
 
 import styles from "./Avatar.module.css";
 import { Text } from "../Text";

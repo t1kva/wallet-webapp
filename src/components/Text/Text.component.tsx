@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import cx from "classnames";
 
-import { TextProps } from "./Text.types";
+import type { TextProps } from "../../types/text";
 
 export const Text: FC<TextProps> = ({
   weight = "",

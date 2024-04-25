@@ -22,7 +22,7 @@ import { ReactComponent as Date24OutlineIcon } from "../../icons/Date24Outline.s
 import { myTonAddressSelector } from "../../store/reducers/user/user.selectors";
 import { ROUTE_NAMES } from "../../router/constants";
 import { getUserNFT, sellNft } from "../../api";
-import { NFT } from "../../types";
+import type { NFT } from "../../types/nft";
 import { JetTokensContext } from "../../providers/JetTokensContextProvider";
 
 export function SellNftPanel() {

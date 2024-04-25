@@ -9,7 +9,7 @@ import * as amplitude from '@amplitude/analytics-browser';
 import { Avatar, Group, Panel, Text, Button } from "../../components";
 import { getUserNFT } from "../../api";
 import { myTonAddressSelector } from "../../store/reducers/user/user.selectors";
-import { NFT } from "../../types";
+import type { NFT } from "../../types/nft";
 import { ROUTE_NAMES } from "../../router/constants";
 import styles from "./Nft.module.css";
 

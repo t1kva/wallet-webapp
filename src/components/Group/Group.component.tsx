@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { GroupProps } from "./Group.types";
+import type { GroupProps } from "../../types/group";
 
 import styles from "./Group.module.css";
 

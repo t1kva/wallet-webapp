@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import { Text } from "../Text";
 
-import { SelectProps } from "./Select.types";
+import type { SelectProps } from "../../types/select";
 
 import { ReactComponent as ArrowDown15OutlineIcon } from "../../icons/ArrowDown15Outline.svg";
 

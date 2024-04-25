@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { FiltersProps } from "./Filters.types";
+import type { FiltersProps } from "../../types/filters";
 import cx from "classnames";
 import styles from "./Filters.module.css";
 import { Button } from "../Button";

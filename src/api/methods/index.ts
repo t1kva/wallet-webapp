@@ -3,7 +3,7 @@ import axios from "axios";
 import { sign_message } from "../utils";
 import { store } from "../../store";
 import { userActions } from "../../store/reducers";
-import { NFT } from "../../types";
+import type { NFT } from "../../types/nft";
 
 const RequestInProgress = new Set();
 

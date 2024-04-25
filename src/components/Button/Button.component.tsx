@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { ButtonProps } from "./Button.types";
+import type { ButtonProps } from "../../types/button";
 
 import styles from "./Button.module.css";
 import { Text } from "../Text";

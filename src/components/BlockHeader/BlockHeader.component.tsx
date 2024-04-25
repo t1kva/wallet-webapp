@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import { Text } from "../Text";
 
-import { BlockHeaderProps } from "./BlockHeader.types";
+import type { BlockHeaderProps } from "../../types/blockheader";
 
 import styles from "./BlockHeader.module.css";
 

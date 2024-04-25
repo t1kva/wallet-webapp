@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { CellProps } from "./Cell.types";
+import type { CellProps } from "../../types/cell";
 
 import { Text } from "../Text";
 

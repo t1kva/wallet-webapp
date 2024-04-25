@@ -19,7 +19,7 @@ import { ReactComponent as QRCopy17OutlineIcon } from "../../icons/QRCopy17Outli
 import { ReactComponent as Date24OutlineIcon } from "../../icons/Date24Outline.svg";
 import { ROUTE_NAMES } from "../../router/constants";
 import { getUserNFT, sendNft } from "../../api";
-import { NFT } from "../../types";
+import type { NFT } from "../../types/nft";
 import { useSelector } from "react-redux";
 import { myTonAddressSelector } from "../../store/reducers/user/user.selectors";
 import { useTranslation } from "react-i18next";

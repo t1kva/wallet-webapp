@@ -1,7 +1,7 @@
 import { FC } from "react";
 import cx from "classnames";
 
-import { BlockProps } from "./Block.types";
+import type { BlockProps } from "../../types/block";
 
 import styles from "./Block.module.css";
 
