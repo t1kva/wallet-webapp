@@ -53,8 +53,9 @@ export const setApiConfig = ({ newConfigValue }: { newConfigValue: any }) => {
 export const apiInit = async ({
   payload,
 }: {
-  payload: { init_data: object };
+  payload: { init_data: string };
 }) => {
+
   if (RequestInProgress.has("webapp")) {
     throw new Error("busy");
   }

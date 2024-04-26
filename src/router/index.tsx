@@ -136,9 +136,9 @@ export const router = createBrowserRouter([
 router.subscribe((v) => {
   try {
     if (window.history.state.idx === 0 && v.historyAction !== "PUSH") {
-      (window as any).Telegram.WebApp.BackButton.hide();
+      Telegram.WebApp.BackButton.hide();
     } else {
-      (window as any).Telegram.WebApp.BackButton.show();
+      Telegram.WebApp.BackButton.show();
     }
   } catch (e) {
     console.log("[xJetWallet] Please login via Telegram!");

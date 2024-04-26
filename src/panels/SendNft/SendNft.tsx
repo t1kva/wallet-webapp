@@ -48,8 +48,9 @@ export const SendNftPanel: FC = () => {
 
   function openQRScanner() {
     try {
-      (window as any).Telegram.WebApp.showScanQrPopup({
-        text: t("Scan token"),
+      const scanTokenText = t("Scan token");
+      Telegram.WebApp.showScanQrPopup({
+        text: scanTokenText,
       });
     } catch (error) {
       console.error("[WebApp] Can't open Camera!");
@@ -76,7 +77,7 @@ export const SendNftPanel: FC = () => {
       try {
         window.navigator.vibrate(200);
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
+        Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
       }
 
       setError(response?.response?.data?.error || response?.data?.error);
@@ -100,7 +101,7 @@ export const SendNftPanel: FC = () => {
       try {
         window.navigator.vibrate(70);
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+        Telegram.WebApp.HapticFeedback.impactOccurred("light");
       }
 
       setFormData((prev) => ({
@@ -108,15 +109,15 @@ export const SendNftPanel: FC = () => {
         receiverToken: data.split("ton://transfer/")[1],
       }));
 
-      (window as any).Telegram.WebApp.closeScanQrPopup();
+      Telegram.WebApp.closeScanQrPopup();
     };
 
-    (window as any).Telegram.WebApp.onEvent("qrTextReceived", handlerQRText);
-    (window as any).Telegram.WebApp.enableClosingConfirmation();
+    Telegram.WebApp.onEvent("qrTextReceived", handlerQRText);
+    Telegram.WebApp.enableClosingConfirmation();
 
     return () => {
-      (window as any).Telegram.WebApp.offEvent("qrTextReceived", handlerQRText);
-      (window as any).Telegram.WebApp.disableClosingConfirmation();
+      Telegram.WebApp.offEvent("qrTextReceived", handlerQRText);
+      Telegram.WebApp.disableClosingConfirmation();
     };
   }, []);
   // const [error, setError] = useState<null | string>(null);

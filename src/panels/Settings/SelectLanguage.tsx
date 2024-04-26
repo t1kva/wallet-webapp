@@ -14,7 +14,7 @@ export function SelectLanguage() {
       try {
         window.navigator.vibrate(70); // Вибрация
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+        Telegram.WebApp.HapticFeedback.impactOccurred("light");
       }
 
       // Отправляем запрос в API

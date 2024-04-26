@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "typeRoots": ["src/types/custom.d.ts"]
+    "typeRoots": ["src/types/custom.d.ts", "./node_modules/telegram-webapps"]
   },
   "include": ["src", "src/types/nft.d.ts", "src/types/trading.d.ts", "src/types/react-app-env.d.ts"]
 }

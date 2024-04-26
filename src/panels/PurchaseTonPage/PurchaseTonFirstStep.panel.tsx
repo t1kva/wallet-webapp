@@ -64,7 +64,7 @@ export const PurchaseTonFirstStep: FC = () => {
   return (
     <Panel
       className={
-        (window as any).Telegram.WebApp.colorScheme == "dark" ? "darktheme" : ""
+        Telegram.WebApp.colorScheme === "dark" ? "darktheme" : ""
       }
     >
       <br />
@@ -72,7 +72,7 @@ export const PurchaseTonFirstStep: FC = () => {
         pending={paymentState.pendingStep}
         reverse={false}
         style={{
-          ...((window as any).Telegram.WebApp.colorScheme == "dark"
+          ...(Telegram.WebApp.colorScheme === "dark"
             ? { color: "white" }
             : {}),
           marginTop: "20px",

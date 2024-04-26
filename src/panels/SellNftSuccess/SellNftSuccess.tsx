@@ -15,7 +15,7 @@ export function SellNftSuccessPanel() {
     try {
       window.navigator.vibrate(200);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
+      Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
     }
   }, []);
 
@@ -35,7 +35,7 @@ export function SellNftSuccessPanel() {
             try {
               window.navigator.vibrate(70);
             } catch (e) {
-              (window as any).Telegram.WebApp.HapticFeedback.impactOccurred(
+              Telegram.WebApp.HapticFeedback.impactOccurred(
                 "light"
               );
             }

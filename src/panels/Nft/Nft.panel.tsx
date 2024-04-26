@@ -69,7 +69,7 @@ export function NftPanel() {
     try {
       window.navigator.vibrate(70);
     } catch (error) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(to);
@@ -87,7 +87,7 @@ export function NftPanel() {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.RECEIVE);

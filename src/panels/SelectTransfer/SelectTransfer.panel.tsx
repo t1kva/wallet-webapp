@@ -49,8 +49,8 @@ export const SelectTransferPanel: FC = () => {
   });
 
   useEffect(() => {
-    if ((window as any).Telegram.WebApp.MainButton.isVisible) {
-      (window as any).Telegram.WebApp.MainButton.hide();
+    if (Telegram.WebApp.MainButton.isVisible) {
+      Telegram.WebApp.MainButton.hide();
     }
   }, []);
 
@@ -77,7 +77,7 @@ export const SelectTransferPanel: FC = () => {
                 try {
                   window.navigator.vibrate(70);
                 } catch (e) {
-                  (window as any).Telegram.WebApp.HapticFeedback.impactOccurred(
+                  Telegram.WebApp.HapticFeedback.impactOccurred(
                     "light"
                   );
                 }

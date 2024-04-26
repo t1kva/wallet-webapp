@@ -69,25 +69,34 @@ export const SendPanel: FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!(window as any).Telegram.WebApp.MainButton.isVisible) {
-      (window as any).Telegram.WebApp.MainButton.show();
+    if (!Telegram.WebApp.MainButton.isVisible) {
+      Telegram.WebApp.MainButton.show();
     }
-    (window as any)
-      .Telegram
-      .WebApp
-      .MainButton
-      .setText(isAwaitResponse ? `${t("Sending")}...` : t("Send"))
-      .onClick(withdraw)
-      .color = (window as any).Telegram.WebApp.themeParams.button_color;
+    const buttonText = isAwaitResponse ? `${t("Sending")}...` : t("Send");
+    Telegram.WebApp.MainButton.setText(buttonText);
+
+    Telegram.WebApp.MainButton.onClick(withdraw);
+
+    const defaultButtonColor = "#FFFFFF";
+    const buttonColor =
+      Telegram.WebApp.themeParams.button_color || defaultButtonColor;
+    Telegram.WebApp.MainButton.color = buttonColor;
 
     return () => {
-      (window as any)
-        .Telegram
-        .WebApp
-        .MainButton
-        .offClick(withdraw)
-    }
+      Telegram.WebApp.MainButton.offClick(withdraw);
+    };
   });
+  useEffect(() => {
+    Telegram.WebApp.MainButton
+      .setText(isAwaitResponse ? `${t("Sending")}...` : t("Send"))
+      .onClick(withdraw);
+  
+    Telegram.WebApp.MainButton.color = Telegram.WebApp.themeParams.button_color || "defaultColor";  // Replace "defaultColor" with an appropriate fallback color
+    
+    return () => {
+      Telegram.WebApp.MainButton.offClick(withdraw);
+    };
+  }, [isAwaitResponse]); 
 
   useEffect(() => {
     amplitude.track("SendPage.Launched");
@@ -95,7 +104,7 @@ export const SendPanel: FC = () => {
       try {
         window.navigator.vibrate(70);
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+        Telegram.WebApp.HapticFeedback.impactOccurred("light");
       }
 
       setFormData((prev) => ({
@@ -103,15 +112,15 @@ export const SendPanel: FC = () => {
         receiverToken: data.split("ton://transfer/")[1],
       }));
 
-      (window as any).Telegram.WebApp.closeScanQrPopup();
+      Telegram.WebApp.closeScanQrPopup();
     };
 
-    (window as any).Telegram.WebApp.onEvent("qrTextReceived", handlerQRText);
-    (window as any).Telegram.WebApp.enableClosingConfirmation();
+    Telegram.WebApp.onEvent("qrTextReceived", handlerQRText);
+    Telegram.WebApp.enableClosingConfirmation();
 
     return () => {
-      (window as any).Telegram.WebApp.offEvent("qrTextReceived", handlerQRText);
-      (window as any).Telegram.WebApp.disableClosingConfirmation();
+      Telegram.WebApp.offEvent("qrTextReceived", handlerQRText);
+      Telegram.WebApp.disableClosingConfirmation();
     };
   }, []);
 
@@ -133,9 +142,10 @@ export const SendPanel: FC = () => {
   }, [error]);
 
   const openQRScanner = () => {
+    const scanTokenText = t("Scan token");
     amplitude.track("SendPage.QRButton.Pushed");
-    (window as any).Telegram.WebApp.showScanQrPopup({
-      text: t("Scan token"),
+    Telegram.WebApp.showScanQrPopup({
+      text: scanTokenText,
     });
   };
 
@@ -157,7 +167,7 @@ export const SendPanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     setFormData({
@@ -168,13 +178,13 @@ export const SendPanel: FC = () => {
 
   const withdraw = async () => {
     if (myTonBalance.amount < comission) {
-      (window as any).Telegram.WebApp.showAlert(t("You don't have enough TON"));
+      Telegram.WebApp.showAlert(t("You don't have enough TON"));
 
       return;
     }
 
-    (window as any).Telegram.WebApp.MainButton.showProgress(true);
-    (window as any).Telegram.WebApp.MainButton.disable();
+    Telegram.WebApp.MainButton.showProgress(true);
+    Telegram.WebApp.MainButton.disable();
     setIsAwaitResponse(true);
 
     const payload = {
@@ -186,8 +196,8 @@ export const SendPanel: FC = () => {
     const response: any = await sendCoins({
       payload,
     }).finally(() => {
-      (window as any).Telegram.WebApp.MainButton.hideProgress();
-      (window as any).Telegram.WebApp.MainButton.enable();
+      Telegram.WebApp.MainButton.hideProgress();
+      Telegram.WebApp.MainButton.enable();
       setIsAwaitResponse(false);
     });
 
@@ -207,7 +217,7 @@ export const SendPanel: FC = () => {
       try {
         window.navigator.vibrate(200);
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
+        Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
       }
 
       setError(response?.response?.data?.error || response?.data?.error);

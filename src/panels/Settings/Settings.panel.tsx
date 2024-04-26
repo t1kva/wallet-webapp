@@ -28,7 +28,7 @@ export function SettingsPanel() {
     try {
       window.navigator.vibrate(70); // Вибрация
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.SETTINGS_LANGUAGE);
@@ -38,7 +38,7 @@ export function SettingsPanel() {
     try {
       window.navigator.vibrate(70); // Вибрация
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.SETTINGS_CURRENCY);

@@ -62,8 +62,8 @@ export const HomePanel: FC = () => {
       top: 0,
       behavior: "smooth",
     });
-    if ((window as any).Telegram.WebApp.MainButton.isVisible) {
-      (window as any).Telegram.WebApp.MainButton.hide();
+    if (Telegram.WebApp.MainButton.isVisible) {
+      Telegram.WebApp.MainButton.hide();
     }
   }, []);
 
@@ -78,13 +78,13 @@ export const HomePanel: FC = () => {
       try {
         window.navigator.vibrate([70, 150, 70, 150, 70]);
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+        Telegram.WebApp.HapticFeedback.impactOccurred("light");
         setTimeout(() => {
-          (window as any).Telegram.WebApp.HapticFeedback.impactOccurred(
+         Telegram.WebApp.HapticFeedback.impactOccurred(
             "light"
           );
           setTimeout(() => {
-            (window as any).Telegram.WebApp.HapticFeedback.impactOccurred(
+            Telegram.WebApp.HapticFeedback.impactOccurred(
               "light"
             );
           }, 200);
@@ -102,7 +102,7 @@ export const HomePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.SEND_SELECT);
@@ -113,7 +113,7 @@ export const HomePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.RECEIVE);
@@ -124,7 +124,7 @@ export const HomePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.HISTORY);
@@ -135,7 +135,7 @@ export const HomePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.SWAP_SELECT);
@@ -146,7 +146,7 @@ export const HomePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.MENU);

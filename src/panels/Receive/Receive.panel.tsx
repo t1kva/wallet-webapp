@@ -34,13 +34,13 @@ export const ReceivePanel: FC = () => {
   const copyTimeoutRef = useRef<NodeJS.Timer | undefined>(undefined);
 
   function handleShowConfirm() {
-    (window as any).Telegram.WebApp.showConfirm(
+    Telegram.WebApp.showConfirm(
       t("Точно ли вы хотите разблокировать этот адрес за 1 TON?"),
       async (value: boolean) => {
         if (value) {
           await purchaseShortName().then((res) => {
             if (res.error) {
-              (window as any).Telegram.WebApp.showAlert(res.error);
+              Telegram.WebApp.showAlert(res.error);
             } else {
               setIsShortWalletDisabled(value);
             }
@@ -73,17 +73,13 @@ export const ReceivePanel: FC = () => {
   }, [query]);
 
   useEffect(() => {
-    if (!(window as any).Telegram.WebApp.MainButton.isVisible && query.get("tonAddress") === null) {
-      (window as any).Telegram.WebApp.MainButton.show();
+    if (!Telegram.WebApp.MainButton.isVisible && query.get("tonAddress") === null) {
+      Telegram.WebApp.MainButton.show();
     }
-    (window as any)
-      .Telegram
-      .WebApp
-      .MainButton
-      .setText(t("Check deposit"))
-      .onClick(check)
-      .color = (window as any).Telegram.WebApp.themeParams.button_color;
-  }, [])
+  
+    Telegram.WebApp.MainButton.setText(t("Check deposit")).onClick(check);
+    Telegram.WebApp.MainButton.color = "blue";
+  }, [query, t]);
 
   useEffect(() => {
     if (copySuccess) {
@@ -119,7 +115,7 @@ export const ReceivePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     try {
@@ -135,7 +131,7 @@ export const ReceivePanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     try {
@@ -146,21 +142,21 @@ export const ReceivePanel: FC = () => {
   };
 
   const check = async () => {
-    (window as any).Telegram.WebApp.MainButton.showProgress(true);
-    (window as any).Telegram.WebApp.MainButton.disable();
+    Telegram.WebApp.MainButton.showProgress(true);
+    Telegram.WebApp.MainButton.disable();
 
     amplitude.track("DepositPage.CheckButton.Pushed");
 
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     await checkDeposit().finally(() => {
       setTimeout(() => {
-        (window as any).Telegram.WebApp.MainButton.hideProgress();
-        (window as any).Telegram.WebApp.MainButton.enable();
+        Telegram.WebApp.MainButton.hideProgress();
+        Telegram.WebApp.MainButton.enable();
       }, 500);
     });
   };

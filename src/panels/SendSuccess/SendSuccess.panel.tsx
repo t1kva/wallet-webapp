@@ -16,36 +16,29 @@ export const SendSuccessPanel: FC = () => {
     try {
       window.navigator.vibrate(200);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
+      Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
     }
   }, []);
 
   useEffect(() => {
-    if (!(window as any).Telegram.WebApp.MainButton.isVisible) {
-      (window as any).Telegram.WebApp.MainButton.show();
+    if (!Telegram.WebApp.MainButton.isVisible) {
+      Telegram.WebApp.MainButton.show();
     }
-    (window as any)
-      .Telegram
-      .WebApp
-      .MainButton
-      .setText(t("Back"))
-      .onClick(buttonAction)
-      .color = (window as any).Telegram.WebApp.themeParams.button_color;
-    
+    Telegram.WebApp.MainButton.setText(t("Back"));
+    Telegram.WebApp.MainButton.onClick(buttonAction);
+    const defaultButtonColor = "#FFFFFF";
+    Telegram.WebApp.MainButton.color = Telegram.WebApp.themeParams.button_color || defaultButtonColor;
+  
     return () => {
-      (window as any)
-        .Telegram
-        .WebApp
-        .MainButton
-        .offClick(buttonAction);
-    }
+      Telegram.WebApp.MainButton.offClick(buttonAction);
+    };
   });
 
   function buttonAction() {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred(
+      Telegram.WebApp.HapticFeedback.impactOccurred(
         "light"
       );
     }

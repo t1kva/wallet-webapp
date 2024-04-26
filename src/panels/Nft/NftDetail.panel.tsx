@@ -27,7 +27,7 @@ export function NftDetailPanel() {
     try {
       window.navigator.vibrate(70);
     } catch (error) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(`/nft/${params.address}/send`);
@@ -38,7 +38,7 @@ export function NftDetailPanel() {
     try {
       window.navigator.vibrate(70);
     } catch (error) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(`/nft/${params.address}/sell`);

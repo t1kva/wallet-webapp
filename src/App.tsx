@@ -66,7 +66,7 @@ export function App() {
       const requestTokenData = async () => {
         const response = await apiInit({
           payload: {
-            init_data: (window as any).Telegram.WebApp.initData,
+            init_data: Telegram.WebApp.initData,
           },
         });
 
@@ -168,23 +168,23 @@ export function App() {
       console.error('Amplitude initialization error:', e);
     }
     try {
-      if ((window as any).Telegram) {
-        const identifyEvent = new amplitude.Identify();
-        identifyEvent.set('telegram_id', (window as any).Telegram.WebApp.initDataUnsafe.user.id);
-        amplitude.identify(identifyEvent);
+      if (Telegram) {
+        if (Telegram.WebApp.initDataUnsafe.user) {
+          const identifyEvent = new amplitude.Identify();
+          identifyEvent.set(
+            "telegram_id",
+            Telegram.WebApp.initDataUnsafe.user.id
+          );
+          amplitude.identify(identifyEvent);
+        }
       }
     } catch (e) {
-      console.error('Telegram user identification error:', e);
+      console.error("Telegram user identification error:", e);
     }
   }, []);
 
   useEffect(() => {
-    (window as any)
-      .Telegram
-      .WebApp
-      .SettingsButton
-      .show()
-      .onClick(openSettings);
+    Telegram.WebApp.SettingsButton.show().onClick(openSettings);
   }, []);
 
   function openSettings() {

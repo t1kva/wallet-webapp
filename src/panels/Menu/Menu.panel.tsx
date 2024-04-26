@@ -168,7 +168,7 @@ export const MenuPanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.HISTORY);
@@ -179,7 +179,7 @@ export const MenuPanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.NFT);
@@ -190,7 +190,7 @@ export const MenuPanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.SWAP_SELECT);
@@ -200,7 +200,7 @@ export const MenuPanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.BUY_TON);
@@ -211,7 +211,7 @@ export const MenuPanel: FC = () => {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.MENU_EXPANDED, {

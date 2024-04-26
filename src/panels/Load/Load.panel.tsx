@@ -33,7 +33,7 @@ export const LoadPanel: FC = () => {
     const requestTokenData = async () => {
       const response = await apiInit({
         payload: {
-          init_data: (window as any).Telegram.WebApp.initData,
+          init_data: Telegram.WebApp.initData,
         },
       });
 

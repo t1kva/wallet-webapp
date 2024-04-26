@@ -9335,6 +9335,11 @@ tapable@^2.0.0, tapable@^2.1.1, tapable@^2.2.0:
   resolved "https://registry.npmjs.org/tapable/-/tapable-2.2.1.tgz"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
 
+telegram-webapps@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/telegram-webapps/-/telegram-webapps-7.2.0.tgz#752a114dec6eb6fb31001002d128df50338b3227"
+  integrity sha512-oo6nmmQXXdoPXfq/g/PhGjAbf5ZbSc2CYzu1owQZXENoxkh6O7RaG7qlZ508vjLWYK8CPKlJvJY5Ja5KvAiLmA==
+
 temp-dir@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/temp-dir/-/temp-dir-2.0.0.tgz"

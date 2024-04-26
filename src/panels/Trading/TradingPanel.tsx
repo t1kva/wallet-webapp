@@ -63,7 +63,7 @@ export function TradingPanel() {
     try {
       window.navigator.vibrate(70);
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
   }
 
@@ -99,24 +99,20 @@ export function TradingPanel() {
   }
 
   useEffect(() => {
-    if (!(window as any).Telegram.WebApp.MainButton.isVisible) {
-      (window as any).Telegram.WebApp.MainButton.show();
+    if (!Telegram.WebApp.MainButton.isVisible) {
+      Telegram.WebApp.MainButton.show();
     }
-    (window as any)
-      .Telegram
-      .WebApp
-      .MainButton
-      .setText(t(activeSwitch).toUpperCase() + " " + selectedExchangePair?.assets[0].toUpperCase())
-      .onClick(handleSubmit)
-      .color = activeSwitch === "sell" ? "#de2c2c" : "#29B77F";
+
+    Telegram.WebApp.MainButton.setText(
+      t(activeSwitch).toUpperCase() +
+        " " +
+        selectedExchangePair?.assets[0].toUpperCase()
+    ).onClick(handleSubmit).color =
+      activeSwitch === "sell" ? "#de2c2c" : "#29B77F";
 
     return () => {
-      (window as any)
-        .Telegram
-        .WebApp
-        .MainButton
-        .offClick(handleSubmit);
-    }
+      Telegram.WebApp.MainButton.offClick(handleSubmit);
+    };
   }, [activeSwitch, selectedExchangePair, t, handleSubmit]);
 
   useEffect(() => {

@@ -52,7 +52,7 @@ export function SellNftPanel() {
     try {
       window.navigator.vibrate(70); // Вибрация
     } catch (e) {
-      (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("light");
+      Telegram.WebApp.HapticFeedback.impactOccurred("light");
     }
 
     navigate(ROUTE_NAMES.SELL_NFT_SELECTCURRENCY);
@@ -90,7 +90,7 @@ export function SellNftPanel() {
       try {
         window.navigator.vibrate(200); // Вибрация
       } catch (e) {
-        (window as any).Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
+        Telegram.WebApp.HapticFeedback.impactOccurred("heavy");
       }
 
       // Присваиваем ошибку в состояние error
